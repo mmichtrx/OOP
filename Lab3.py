@@ -5,7 +5,7 @@ class Student:
         self.major = ""
         self.gpa = 0.0
         self.dob = ""
-        self.courses = []
+        self.books = []
 
     def add_student(self):
         self.stu_id = input("Enter Student ID: ")
@@ -15,7 +15,7 @@ class Student:
         self.dob = input("Enter Student DOB: ")
 
     def register_course(self, cc1):
-        self.courses.append(cc1)
+        self.books.append(cc1)
 
     def edit_student(self):
         self.stu_name = input("Enter Updated Student Name: ")
@@ -31,17 +31,17 @@ class Student:
         print("GPA:", self.gpa)
         print("DOB:", self.dob)
         for x in self.courses:
-            print("Course Registered: ", x.courseName)
+            print("Book Checked-Out: ", x.bookName)
 
 
-class Course:
+class Book:
     def __init__(self, cid, cname):
-        self.courseID = ""
-        self.courseName = ""
+        self.bookID = ""
+        self.bookName = ""
 
-    def add_course(self):
-        self.courseID = input("Enter Course ID: ")
-        self.courseName = input("Enter Course Name: ")
+    def add_book(self):
+        self.bookID = input("Enter Book ID: ")
+        self.bookName = input("Enter Book Name: ")
 
 
 
@@ -51,12 +51,14 @@ s1 = Student()
 s1.add_student()
 s1.display_student()
 
-c1 = Course("CS1233", "OOP")
-c2 = Course("CS2423", "Web APP")
-c3 = Course("MTH1163", "Calculas-1")
+b1 = Book("CS1233", "OOP")
+b2 = Book("CS2423", "Web APP")
+b3 = Book("MTH1163", "Calculas-1")
+b4 = Book
+b5 = Book
 
-c1.add_course()     ##  OOP
-c2.add_course()
+c1.book()     ##  OOP
+c2.book()
 
 s1.register_course(c1)
 s1.display_student()
