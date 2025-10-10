@@ -1,0 +1,96 @@
+class Book:
+    def __init__(self):
+        self.book_id = ""
+        self.book_title = ""
+        self.author_id = ""
+        self.publisher = ""
+        self.year_of_publication = 0
+        self.books_borrowed = []
+
+    def add_book(self):
+        self.book_id = input("Enter Book ID: ")
+        self.book_title = input("Enter Book Title: ")
+        self.author_id = input("Enter Author ID: ")
+        self.publisher = input("Enter Publisher: ")
+        self.year_of_publication = int(input("Enter Year of Publication: "))
+
+    def display_book(self):
+        print("BookID:", self.book_id)
+        print("Book Title:", self.book_title)
+        print("Author ID:", self.author_id)
+        print("Publisher:", self.publisher)
+        print("Year of Publication:", self.year_of_publication)
+        print()
+
+class Author:
+    def __init__(self):
+        self.author_id = ""
+        self.author_name = ""
+        self.affiliation = ""
+        self.country = ""
+        self.phone = ""
+        self.email_id = ""
+
+    def add_author(self):
+        self.author_id = input("Enter Author ID: ")
+        self.author_name = input("Enter Author Name: ")
+        self.affiliation = input("Enter Affiliation: ")
+        self.country = input("Enter Country: ")
+        self.phone = input("Enter Phone: ")
+        self.email_id = input("Enter Email ID: ")
+
+    def display_author(self):
+        print("Author ID:", self.author_id)
+        print("Author Name:", self.author_name)
+        print("Affiliation:", self.affiliation)
+        print("Country:", self.country)
+        print("Phone:", self.phone)
+        print("Email ID:", self.email_id)
+        print()
+
+class User:
+    def __init__(self):
+        self.user_id = ""
+        self.name = ""
+        self.password = ""
+        self.address = ""
+        self.phone = ""
+        self.email_id = ""
+        self.books_borrowed = []
+
+    def add_user(self):
+        self.user_id = input("Enter User ID: ")
+        self.name = input("Enter User Name: ")
+        self.password = input("Enter Password: ")
+        self.address = input("Enter Address: ")
+        self.phone = input("Enter Phone: ")
+        self.email_id = input("Enter Email ID: ")
+
+    def display_user(self):
+        print("User ID:", self.user_id)
+        print("Name:", self.name)
+        print("Address:", self.address)
+        print("Phone:", self.phone)
+        print("Email ID:", self.email_id)
+        print("Books Borrowed:", [book.book_title for book in self.books_borrowed])
+        print()
+
+    def borrow_book(self, book):
+        self.books_borrowed.append(book)
+        print(self.name + " borrowed " + book.book_title)
+
+s1 = User()
+s2 = Book()
+
+
+s2.add_book()
+
+s2.display_book()
+s1.add_user()
+
+s1.display_user()
+
+s1.borrow_book(s2)
+
+
+s1.display_user()
