@@ -1,0 +1,74 @@
+class Customer:
+    def __init__(self):
+        self.cid = ""
+        self.cname = ""
+        self.acc_no = ""
+        self.phone = ""
+        self.emailID = ""
+        self.balance = 0.0
+        self.cards = []
+
+    def add_customer(self):
+        self.cid = input("Enter Customer ID: ")
+        self.cname = input("Enter Customer Name: ")
+        self.acc_no = input("Enter Account Number: ")
+        self.phone = input("Enter Phone Number: ")
+        self.emailID = input("Enter Email ID: ")
+        self.balance = float(input("Enter Balance: "))
+
+    def display_all(self):
+        print("Customer ID:", self.cid)
+        print("Customer Name:", self.cname)
+        print("Account Number:", self.acc_no)
+        print("Phone:", self.phone)
+        print("Email:", self.emailID)
+        print("Balance:", self.balance)
+
+    def debit_from(self, amount):
+        self.balance -= amount
+
+    def credit_to(self, amount):
+        self.balance += amount
+
+
+class Card:
+    def __init__(self):
+        self.type = ""
+        self.card_no = ""
+        self.cvv = ""
+        self.expiry_date = ""
+        self.balance = 0.0
+
+    def add_card(self):
+        self.type = input("Enter Card Type: ")
+        self.card_no = input("Enter Card Number: ")
+        self.cvv = input("Enter Card CVV: ")
+        self.expiry_date = input("Enter Expiry Date: ")
+        self.balance = float(input("Enter Card Balance: "))
+
+    def display_card(self):
+        print("Type:", self.type)
+        print("Card No:", self.card_no)
+        print("CVV:", self.cvv)
+        print("Expiry Date:", self.expiry_date)
+        print("Balance:", self.balance)
+
+c1 = Customer()
+c2 = Customer()
+
+cc1 = Card()
+cc2 = Card()
+
+c1.add_customer()
+c2.add_customer()
+
+cc1.add_card()
+
+cc2.add_card()
+
+amount = float(input("\nEnter amount to transfer from Customer 1 to Customer 2: "))
+c1.debit_from(amount)
+c2.credit_to(amount)
+
+c1.cards.append(cc1)
+c2.cards.append(cc2)
