@@ -27,14 +27,14 @@ q1 = Queue()
 answer = Text(top, width=35, height=5)
 answer.place(x=100, y=50)
 
-def enqueue_action():
+def enqueued():
     text = answer.get("1.0", "end-1c").strip()
     if text:
         q1.enqueue(text)
         answer.delete("1.0", END)
         answer.insert(END, f"Enqueued: {text}")
 
-def dequeue_action():
+def dequeued():
     item = q1.dequeue()
     answer.delete("1.0", END)
     if item:
@@ -42,7 +42,7 @@ def dequeue_action():
     else:
         answer.insert(END, "Queue is empty")
 
-def display_action():
+def displayqueues():
     answer.delete("1.0", END)
     answer.insert(END, "Queue contents:\n")
     for i, item in enumerate(q1.displayQueue(), start=1):
@@ -59,3 +59,4 @@ Bdisq = Button(top, text="DisplayQueue", width=12, height=2, command=display_act
 Bdisq.place(x=300, y=150)
 
 top.mainloop()
+
