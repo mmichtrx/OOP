@@ -27,18 +27,18 @@ q1 = Queue()
 answer = Text(top, width=35, height=5)
 answer.place(x=100, y=50)
 
-def enqueued():
-    text = answer.get("1.0", "end-1c").strip()
-    if text:
-        q1.enqueue(text)
+def enqueues():
+    x = answer.get("1.0", "end-1c").strip()
+    if x:
+        q1.enqueue(x)
         answer.delete("1.0", END)
-        answer.insert(END, f"Enqueued: {text}")
+        answer.insert(END, f"Enqueued: {x}")
 
-def dequeued():
-    item = q1.dequeue()
+def dequeues():
+    x2 = q1.dequeue()
     answer.delete("1.0", END)
-    if item:
-        answer.insert(END, f"Dequeued: {item}")
+    if x2:
+        answer.insert(END, f"Dequeued: {x2}")
     else:
         answer.insert(END, "Queue is empty")
 
@@ -49,14 +49,13 @@ def displayqueues():
         answer.insert(END, f"{i}. {item}\n")
 
 
-Beq = Button(top, text="Enqueue", width=10, height=2, command=enqueue_action)
+Beq = Button(top, text="Enqueue", width=10, height=2, command=enqueues)
 Beq.place(x=100, y=150)
 
-Bdq = Button(top, text="Dequeue", width=10, height=2, command=dequeue_action)
+Bdq = Button(top, text="Dequeue", width=10, height=2, command=dequeues)
 Bdq.place(x=200, y=150)
 
-Bdisq = Button(top, text="DisplayQueue", width=12, height=2, command=display_action)
+Bdisq = Button(top, text="DisplayQueue", width=12, height=2, command=displayqueues)
 Bdisq.place(x=300, y=150)
 
 top.mainloop()
-
