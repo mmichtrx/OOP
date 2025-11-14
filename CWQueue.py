@@ -10,7 +10,7 @@ class Queue:
 
     def dequeue(self):
        if self.element:
-            return self.element.pop(0)
+        return self.element.pop(0)
         return None
 
     def displayQueue(self):
@@ -18,16 +18,12 @@ class Queue:
 
 top = Tk()
 top.geometry("500x500")
+top.title("Queue Example")
 
-answer = Text(width=35, height=2)
+answer = Text(top, width=35, height=2)
 answer.place(x=100, y=100)
 
-def show(self,x):
-    try:
-        if x == "0":
-            final_answer = eval(answer.get(1.0, "end-1c"))
-            answer.instert(tk.INSERT,x)
-            answer.insert(tk.INSERT, final_answer)
+def enqueue
 
         else:
             answer.insert(tk.INSERT, x)
