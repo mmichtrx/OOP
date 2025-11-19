@@ -1,0 +1,64 @@
+import tkinter as tk
+from tkinter import *
+
+
+class Stack:
+    def __init__(self):
+        self.element = []
+
+    def pushed(self, x):
+        self.element.append(x)
+
+    def popped(self):
+        self.element.pop()
+
+    def displayStacks(self):
+        print("Elements in Stack:")
+        for i in self.element:
+            print()
+
+top = Tk()
+top.geometry("500x500")
+top.title("Stacks Examples")
+
+q1 = Stack()
+
+answer = Text(top, width=35, height=5)
+answer.place(x=100, y=50)
+
+def pushed():
+    x = answer.get("1.0", "end-1c").strip()
+    if x:
+        q1.pushed(x)
+        answer.delete("1.0", END)
+        answer.insert(END, f"Pushed: {x}")
+
+def popped():
+    x2 = q1.popped()
+    answer.delete("1.0", END)
+    if x2:
+        answer.insert(END, f"Popped: {x2}")
+    else:
+        answer.insert(END, "Stack is empty")
+
+def displayStacks():
+    answer.delete("1.0", END)
+    answer.insert(END, "Queue contents:\n")
+    for i, item in enumerate(q1.displayStacks(), start=1):
+        answer.insert(END, f"{i}. {item}\n")
+
+
+Bpush = Button(top, text="Push", width=10, height=2, command=pushed)
+Bpush.place(x=100, y=150)
+
+Bpop = Button(top, text="Pop", width=10, height=2, command=popped)
+Bpop.place(x=200, y=150)
+
+Bdis = Button(top, text="DisplayStack", width=12, height=2, command=displayStacks)
+Bdis.place(x=300, y=150)
+
+
+
+
+
+top.mainloop()
