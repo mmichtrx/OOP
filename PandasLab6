@@ -1,0 +1,21 @@
+import pandas as pd
+df = pd.read_csv("data01.csv")
+
+med_val = df['median_house_value'].median()
+print(med_val)
+
+med_val_rooms = df['total_rooms'].median()
+
+for x in df.index:
+  if df.loc[x, "total_rooms"] > 500:
+    df.loc[x, "total_rooms"] = med_val_rooms
+
+x = df['housing_median_age'].mean
+print("housing_median_age:", x)
+
+
+
+import matplotlib.pyplot as plt
+
+df.plot(kind = 'scatter', x = 'housing_median_age', y = 'total_bedrooms')
+plt.show()
